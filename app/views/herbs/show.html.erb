@@ -1,34 +1,29 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = Herb -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
 
-<p>
-  <strong>Common name:</strong>
-  <%= @herb.common_name %>
-</p>
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:common_name) %>:</strong></dt>
+  <dd><%= @herb.common_name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:latin_name) %>:</strong></dt>
+  <dd><%= @herb.latin_name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:heat_cool) %>:</strong></dt>
+  <dd><%= @herb.heat_cool %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:relax_tone) %>:</strong></dt>
+  <dd><%= @herb.relax_tone %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:moisten_dry) %>:</strong></dt>
+  <dd><%= @herb.moisten_dry %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:notes) %>:</strong></dt>
+  <dd><%= @herb.notes %></dd>
+</dl>
 
-<p>
-  <strong>Latin name:</strong>
-  <%= @herb.latin_name %>
-</p>
-
-<p>
-  <strong>Heat cool:</strong>
-  <%= @herb.heat_cool %>
-</p>
-
-<p>
-  <strong>Relax tone:</strong>
-  <%= @herb.relax_tone %>
-</p>
-
-<p>
-  <strong>Moisten dry:</strong>
-  <%= @herb.moisten_dry %>
-</p>
-
-<p>
-  <strong>Notes:</strong>
-  <%= @herb.notes %>
-</p>
-
-<%= link_to 'Edit', edit_herb_path(@herb) %> |
-<%= link_to 'Back', herbs_path %>
+<%= link_to t('.back', :default => t("helpers.links.back")),
+              herbs_path, :class => 'btn btn-default'  %>
+<%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_herb_path(@herb), :class => 'btn btn-default' %>
+<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              herb_path(@herb),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>

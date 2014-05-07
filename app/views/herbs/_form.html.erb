@@ -1,41 +1,44 @@
-<%= form_for(@herb) do |f| %>
-  <% if @herb.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@herb.errors.count, "error") %> prohibited this herb from being saved:</h2>
-
-      <ul>
-      <% @herb.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<%= form_for @herb, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="form-group">
+    <%= f.label :common_name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :common_name, :class => 'form-control' %>
     </div>
-  <% end %>
+  </div>
+  <div class="form-group">
+    <%= f.label :latin_name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :latin_name, :class => 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :heat_cool, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :heat_cool, :class => 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :relax_tone, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :relax_tone, :class => 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :moisten_dry, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :moisten_dry, :class => 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :notes, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :notes, :class => 'form-control' %>
+    </div>
+  </div>
 
-  <div class="field">
-    <%= f.label :common_name %><br>
-    <%= f.text_field :common_name %>
-  </div>
-  <div class="field">
-    <%= f.label :latin_name %><br>
-    <%= f.text_field :latin_name %>
-  </div>
-  <div class="field">
-    <%= f.label :heat_cool %><br>
-    <%= f.number_field :heat_cool %>
-  </div>
-  <div class="field">
-    <%= f.label :relax_tone %><br>
-    <%= f.number_field :relax_tone %>
-  </div>
-  <div class="field">
-    <%= f.label :moisten_dry %><br>
-    <%= f.number_field :moisten_dry %>
-  </div>
-  <div class="field">
-    <%= f.label :notes %><br>
-    <%= f.text_area :notes %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  
+  <%= f.submit nil, :class => 'btn btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+            herbs_path, :class => 'btn btn-default' %>
+ 
 <% end %>
