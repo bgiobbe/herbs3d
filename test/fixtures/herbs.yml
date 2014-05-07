@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  common_name: MyString
+  latin_name: MyString
+  heat_cool: 1
+  relax_tone: 1
+  moisten_dry: 1
+  notes: MyText
+
+two:
+  common_name: MyString
+  latin_name: MyString
+  heat_cool: 1
+  relax_tone: 1
+  moisten_dry: 1
+  notes: MyText

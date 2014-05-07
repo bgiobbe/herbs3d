@@ -1,0 +1,41 @@
+<%= form_for(@herb) do |f| %>
+  <% if @herb.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@herb.errors.count, "error") %> prohibited this herb from being saved:</h2>
+
+      <ul>
+      <% @herb.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :common_name %><br>
+    <%= f.text_field :common_name %>
+  </div>
+  <div class="field">
+    <%= f.label :latin_name %><br>
+    <%= f.text_field :latin_name %>
+  </div>
+  <div class="field">
+    <%= f.label :heat_cool %><br>
+    <%= f.number_field :heat_cool %>
+  </div>
+  <div class="field">
+    <%= f.label :relax_tone %><br>
+    <%= f.number_field :relax_tone %>
+  </div>
+  <div class="field">
+    <%= f.label :moisten_dry %><br>
+    <%= f.number_field :moisten_dry %>
+  </div>
+  <div class="field">
+    <%= f.label :notes %><br>
+    <%= f.text_area :notes %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
