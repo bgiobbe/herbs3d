@@ -11,7 +11,43 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140507044813) do
+ActiveRecord::Schema.define(version: 20140507050056) do
+
+  create_table "affinities", force: true do |t|
+    t.string   "name"
+    t.text     "notes"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "affinities_herbs", id: false, force: true do |t|
+    t.integer "affinity_id"
+    t.integer "herb_id"
+  end
+
+  create_table "clinical_actions", force: true do |t|
+    t.string   "name"
+    t.text     "notes"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "clinical_actions_herbs", id: false, force: true do |t|
+    t.integer "clinical_action_id"
+    t.integer "herb_id"
+  end
+
+  create_table "foundational_actions", force: true do |t|
+    t.string   "name"
+    t.text     "notes"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "foundational_actions_herbs", id: false, force: true do |t|
+    t.integer "foundational_action_id"
+    t.integer "herb_id"
+  end
 
   create_table "herbs", force: true do |t|
     t.string   "common_name"

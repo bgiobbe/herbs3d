@@ -5,28 +5,24 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:common_name) %></th>
-      <th><%= model_class.human_attribute_name(:latin_name) %></th>
-      <th><%= model_class.human_attribute_name(:heat_cool) %></th>
-      <th><%= model_class.human_attribute_name(:relax_tone) %></th>
-      <th><%= model_class.human_attribute_name(:moisten_dry) %></th>
-      <th><%= model_class.human_attribute_name(:notes) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th>Common Name</th>
+      <th>Latin Name</th>
+      <th>Heat/Cool</th>
+      <th>Relax/Tone</th>
+      <th>Moisten/Dry</th>
+      <th>Notes</th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
   <tbody>
     <% @herbs.each do |herb| %>
       <tr>
-        <td><%= link_to herb.id, herb_path(herb) %></td>
-        <td><%= herb.common_name %></td>
+        <td><%= link_to herb.common_name, herb_path(herb) %></td>
         <td><%= herb.latin_name %></td>
         <td><%= herb.heat_cool %></td>
         <td><%= herb.relax_tone %></td>
         <td><%= herb.moisten_dry %></td>
         <td><%= herb.notes %></td>
-        <td><%=l herb.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_herb_path(herb), :class => 'btn btn-default btn-xs' %>

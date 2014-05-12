@@ -1,4 +1,4 @@
-<%= form_for @herb, :html => { :class => 'form-horizontal' } do |f| %>
+<%= form_for @herb, :html => { :class => 'form-horizontal', :role => 'form' } do |f| %>
   <div class="form-group">
     <%= f.label :common_name, :class => 'control-label' %>
     <div class="controls">
@@ -12,23 +12,31 @@
     </div>
   </div>
   <div class="form-group">
-    <%= f.label :heat_cool, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :heat_cool, :class => 'form-control' %>
+    <%= f.label :heat_cool, 'Cooling', :class => 'control-label' %>
+    <div class="controls slider-control">
+      <%= f.hidden_field :heat_cool, :class => 'form-control' %>
+      <div id='HC'></div>
+      <div class='right-label'>Heating</div>
+    </div>
+    <!--label class='right-label'>Heating</label -->
+  </div>
+  <div class="form-group">
+    <%= f.label :relax_tone, 'Toning', :class => 'control-label' %>
+    <div class="controls slider-control">
+      <%= f.hidden_field :relax_tone, :class => 'form-control' %>
+      <div id='RT'></div>
+      <div class='right-label'>Relaxing</div>
     </div>
   </div>
   <div class="form-group">
-    <%= f.label :relax_tone, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :relax_tone, :class => 'form-control' %>
+    <%= f.label :moisten_dry, 'Drying', :class => 'control-label' %>
+    <div class="controls slider-control">
+      <%= f.hidden_field :moisten_dry, :class => 'form-control' %>
+      <div id='MD'></div>
+      <div class='right-label'>Moistening</div>
     </div>
   </div>
-  <div class="form-group">
-    <%= f.label :moisten_dry, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :moisten_dry, :class => 'form-control' %>
-    </div>
-  </div>
+  <div id='composite'></div>
   <div class="form-group">
     <%= f.label :notes, :class => 'control-label' %>
     <div class="controls">

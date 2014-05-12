@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  root 'search#search'
+
+  resources :affinities
+
+  resources :clinical_actions
+
+  resources :foundational_actions
+
   resources :herbs
 
   # The priority is based upon order of creation: first created -> highest priority.
