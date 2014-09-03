@@ -14,6 +14,6 @@
 //= require jquery.ui.datepicker
 //= require jquery.ui.slider
 //= require jquery_ujs
-//= require twitter/bootstrap
+//= require bootstrap.min
 //= require turbolinks
 //= require herbs
