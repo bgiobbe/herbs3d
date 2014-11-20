@@ -1,52 +1,89 @@
-<%= form_for @herb, :html => { :class => 'form-horizontal', :role => 'form' } do |f| %>
+<%= form_for @herb, :html => { class: 'form-horizontal', role: 'form' } do |f| %>
   <div class="form-group">
-    <%= f.label :common_name, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :common_name, :class => 'form-control' %>
+    <%= f.label :common_name, class: 'col-sm-2 control-label' %>
+    <div class="col-sm-8 controls">
+      <%= f.text_field :common_name, class: 'form-control' %>
     </div>
   </div>
   <div class="form-group">
-    <%= f.label :latin_name, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :latin_name, :class => 'form-control' %>
+    <%= f.label :latin_name, class: 'col-sm-2 control-label' %>
+    <div class="col-sm-8 controls">
+      <%= f.text_field :latin_name, class: 'form-control' %>
     </div>
   </div>
   <div class="form-group">
-    <%= f.label :heat_cool, 'Cooling', :class => 'control-label' %>
-    <div class="controls slider-control">
-      <%= f.hidden_field :heat_cool, :class => 'form-control' %>
+    <%= f.label :heat_cool, 'Cooling', class: 'col-sm-2 control-label' %>
+    <div class="col-sm-3 controls slider-control">
+      <%= f.hidden_field :heat_cool, class: 'form-control' %>
       <div id='HC'></div>
-      <div class='right-label'>Heating</div>
     </div>
+    <div class='col-sm-1 right-label'>Heating</div>
     <!--label class='right-label'>Heating</label -->
   </div>
   <div class="form-group">
-    <%= f.label :relax_tone, 'Toning', :class => 'control-label' %>
-    <div class="controls slider-control">
-      <%= f.hidden_field :relax_tone, :class => 'form-control' %>
+    <%= f.label :relax_tone, 'Toning', class: 'col-sm-2 control-label' %>
+    <div class="col-sm-3 controls slider-control">
+      <%= f.hidden_field :relax_tone, class: 'form-control' %>
       <div id='RT'></div>
-      <div class='right-label'>Relaxing</div>
     </div>
+    <div class='col-sm-1 right-label'>Relaxing</div>
   </div>
   <div class="form-group">
-    <%= f.label :moisten_dry, 'Drying', :class => 'control-label' %>
-    <div class="controls slider-control">
-      <%= f.hidden_field :moisten_dry, :class => 'form-control' %>
+    <%= f.label :moisten_dry, 'Drying', class: 'col-sm-2 control-label' %>
+    <div class="col-sm-3 controls slider-control">
+      <%= f.hidden_field :moisten_dry, class: 'form-control' %>
       <div id='MD'></div>
-      <div class='right-label'>Moistening</div>
     </div>
+    <div class='col-sm-1 right-label'>Moistening</div>
   </div>
   <div id='composite'></div>
   <div class="form-group">
-    <%= f.label :notes, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :notes, :class => 'form-control' %>
+    <%= f.label :flavor_id, 'Flavor', class: 'col-sm-2 control-label' %>
+    <div class="col-sm-4 controls">
+      <%= f.collection_select :flavor_id, Flavor.all, :id, :name,
+            selected: @herb.flavor_id, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :foundational_action_ids, 'Foundational actions',
+            class: 'col-sm-2 control-label' %>
+    <div class="col-sm-4 controls">
+      <%= f.collection_select :foundational_action_ids,
+             FoundationalAction.order(:name), :id, :name,
+             selected: @herb.foundational_action_ids, multiple: true,
+             class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :affinity_ids, 'Tissue/organ affinities',
+            class: 'col-sm-2 control-label' %>
+    <div class="col-sm-4 controls">
+      <%= f.collection_select :affinity_ids,
+             Affinity.order(:name), :id, :name,
+             selected: @herb.affinity_ids, multiple: true,
+             class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :clinical_action_ids, 'Clinical actions',
+            class: 'col-sm-2 control-label' %>
+    <div class="col-sm-4 controls">
+      <%= f.collection_select :clinical_action_ids,
+             ClinicalAction.order(:name), :id, :name,
+             selected: @herb.clinical_action_ids, multiple: true,
+             class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :notes, class: 'col-sm-2 control-label' %>
+    <div class="col-sm-8 controls">
+      <%= f.text_area :notes, rows: 4, cols: 80, class: 'form-control' %>
     </div>
   </div>
 
   
-  <%= f.submit nil, :class => 'btn btn-primary' %>
+  <%= f.submit nil, class: 'btn btn-primary' %>
   <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-            herbs_path, :class => 'btn btn-default' %>
+            herbs_path, class: 'btn btn-default' %>
  
 <% end %>

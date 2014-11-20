@@ -6,6 +6,7 @@ class CreateHerbs < ActiveRecord::Migration
       t.integer :heat_cool
       t.integer :relax_tone
       t.integer :moisten_dry
+      t.belongs_to :flavor
       t.text :notes
 
       t.timestamps

@@ -2,9 +2,10 @@ class Herb < ActiveRecord::Base
   MIN = -3
   NEUTRAL = 0
   MAX = 3
-  has_and_belongs_to_many :foundational_actions
+  has_one :flavor
   has_and_belongs_to_many :affinities
-  has_and_belongs_to_many :clinicial_actions
+  has_and_belongs_to_many :clinical_actions
+  has_and_belongs_to_many :foundational_actions
   validates :common_name, presence: true
   # There may be good reasons to include an herb more than once
   # with different energetics.
@@ -14,6 +15,14 @@ class Herb < ActiveRecord::Base
       less_than_or_equal_to: MAX
   }
   after_initialize :init_energetics
+
+  scope :cooling, where('heat_cool < 0')
+  scope :heating, where('heat_cool > 0')
+  scope :toning, where('relax_tone < 0')
+  scope :relaxing, where('relax_tone > 0')
+  scope :drying, where('moisten_dry < 0')
+  scope :moistening, where('moisten_dry > 0')
+
 
   def heat_cool_s
     energetic_s self.heat_cool, 'cooling', 'heating'

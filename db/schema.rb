@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20140507050056) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "affinities", force: true do |t|
     t.string   "name"
     t.text     "notes"
@@ -37,6 +40,13 @@ ActiveRecord::Schema.define(version: 20140507050056) do
     t.integer "herb_id"
   end
 
+  create_table "flavors", force: true do |t|
+    t.string   "name"
+    t.text     "notes"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "foundational_actions", force: true do |t|
     t.string   "name"
     t.text     "notes"
@@ -55,6 +65,7 @@ ActiveRecord::Schema.define(version: 20140507050056) do
     t.integer  "heat_cool"
     t.integer  "relax_tone"
     t.integer  "moisten_dry"
+    t.integer  "flavor_id"
     t.text     "notes"
     t.datetime "created_at"
     t.datetime "updated_at"

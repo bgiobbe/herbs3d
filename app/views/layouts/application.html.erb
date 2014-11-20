@@ -2,14 +2,16 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><%= content_for?(:title) ? yield(:title) : "Herbs3d" %></title>
     <%= csrf_meta_tags %>
 
-    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
-      <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.js" type="text/javascript"></script>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
     <%= stylesheet_link_tag "application", :media => "all" %>
@@ -33,57 +35,44 @@
     <!-- For all other devices -->
     <!-- Size should be 32 x 32 pixels -->
     <%= favicon_link_tag 'favicon.ico', :rel => 'shortcut icon' %>
-
-    <%= javascript_include_tag "application" %>
   </head>
   <body>
 
-    <div class="navbar navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse">
+            <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
-          </a>
-          <a class="brand" href="#">Herbs3d</a>
-          <div class="container nav-collapse">
-            <ul class="nav">
-              <li><%= link_to "Search", "/"  %></li>
-              <li><%= link_to "Herbs", "/herbs"  %></li>
-              <li><%= link_to "Foundational Actions", "/foundational_actions" %></li>
-              <li><%= link_to "Tissue/Organ Affinities", "/affinities" %></li>
-              <li><%= link_to "Clinical Actions", "/clinical_actions" %></li>
-            </ul>
-          </div><!--/.nav-collapse -->
+          </button>
+          <a class="navbar-brand" href="#">Herbs3d</a>
         </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><%= link_to "Search", "/"  %></li>
+            <li><%= link_to "Herbs", "/herbs"  %></li>
+            <li><%= link_to "Flavors", "/flavors"  %></li>
+            <li><%= link_to "Foundational Actions", "/foundational_actions" %></li>
+            <li><%= link_to "Tissue/Organ Affinities", "/affinities" %></li>
+            <li><%= link_to "Clinical Actions", "/clinical_actions" %></li>
+          </ul>
+        </div><!--/.navbar-collapse -->
       </div>
     </div>
 
     <div class="container">
-        <div class="row">
-          <div class="span9">
-            <%= bootstrap_flash %>
-            <%= yield %>
-          </div>
-          <div class="span3">
-            <div class="well sidebar-nav">
-              <h3>Sidebar</h3>
-              <ul class="nav nav-list">
-                <li class="nav-header">Sidebar</li>
-                <li><%= link_to "Link1", "/path1"  %></li>
-                <li><%= link_to "Link2", "/path2"  %></li>
-                <li><%= link_to "Link3", "/path3"  %></li>
-              </ul>
-            </div><!--/.well -->
-          </div><!--/span-->
-        </div><!--/row-->
+
+      <%= bootstrap_flash %>
+      <%= yield %>
 
       <footer>
-        <p>&copy; Company 2014</p>
+        <p>&copy; BGiobbe 2014</p>
       </footer>
 
     </div> <!-- /container -->
 
+    <%= javascript_include_tag "application" %>
   </body>
 </html>

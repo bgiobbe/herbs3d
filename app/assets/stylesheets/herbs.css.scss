@@ -5,18 +5,23 @@
 .slider-control {
   height: 22px;
   margin: 0;
-  padding: 4px 0;
+  padding: 7px 0 0 0;
 }
 .right-label {
-  position: relative;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 7px;
+/*  position: relative;
   top: -17px;
   margin-left: 320px;
   font-size: 14px;
   font-weight: normal;
-  line-height: 20px;
+  line-height: 20px; */
 }
 #HC, #RT, #MD {
-  width: 300px;
+/*  width: 300px; */
+  width: 100%;
   margin-top: 5px;
 }
 .ui-slider-horizontal {

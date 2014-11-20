@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :flavors
+
   root 'search#search'
 
   resources :affinities
